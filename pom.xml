@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>eu.tailoringexpert</groupId>
+    <artifactId>tailoringexpert-db-migration</artifactId>
+    <version>0.1.2-SNAPSHOT</version>
+
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>Java database migrations</description>
+    <packaging>jar</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>17</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <tailoringexpert-dependencies.version>0.1.2</tailoringexpert-dependencies.version>
+        <tailoringexpert.version>0.1.2</tailoringexpert.version>
+        <lombok.version>1.18.30</lombok.version>
+        <spring-dotenv.version>4.0.0</spring-dotenv.version>
+
+        <liquibase.promptOnNonLocalDatabase>false</liquibase.promptOnNonLocalDatabase>
+        <liquibase.outputFileEncoding>UTF-8</liquibase.outputFileEncoding>
+        <liquibase.logging>info</liquibase.logging>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>eu.tailoringexpert</groupId>
+                <artifactId>tailoringexpert-dependencies</artifactId>
+                <version>${tailoringexpert-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>eu.tailoringexpert</groupId>
+            <artifactId>tailoringexpert-core</artifactId>
+            <version>${tailoringexpert.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>eu.tailoringexpert</groupId>
+            <artifactId>tailoringexpert-data-jpa</artifactId>
+            <version>${tailoringexpert.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>me.paulschwarz</groupId>
+            <artifactId>spring-dotenv</artifactId>
+            <version>${spring-dotenv.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.cdimascio</groupId>
+            <artifactId>dotenv-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <!-- test -->
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+        </dependency>
+
+    </dependencies>
+
+</project>
